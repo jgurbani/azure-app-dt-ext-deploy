@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "site_name": {            
+            "type": "String",
+			"metadata": {
+                "description": "Web app name where you would like to install extension."
+            }
+        },
+        "environmentID": {            
+            "type": "String",
+			"metadata": {
+                "description": "Dynatrace environmentID, see https://www.dynatrace.com/support/help/get-started/monitoring-environment/environment-id for details"
+            }
+        },
+        "SSLMode": {
+            "defaultValue": "default",
+            "type": "String",
+			"metadata": {
+                "description": "No change needed"
+            }
+        },
+        "APIToken": {            
+            "type": "String",
+			"metadata": {
+                "description": "Dynatrace API PaaS Token, see https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-appservice/integrate-oneagent-on-azure-app-service#prerequisites for details"
+            }
+        },
+        "DT_API_URL": {            
+            "type": "String",
+			"defaultValue": "https://abc.live.dynatrace.com/api",
+			"metadata": {
+                "description": "The server URL, For example:  https://abc.live.dynatrace.com/api"
+            }
+        },
+        "location": {
+            "defaultValue": "East US",
+            "type": "String",
+			"metadata": {
+                "description": "Azure Region of the App Service"
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('site_name')]",
+            "location": "[parameters('location')]",
+            "kind": "app",
+            "properties": {
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "Name": "DT_TENANT",
+                            "Value": "[parameters('environmentID')]"
+                        },
+                        {
+                            "Name": "DT_API_TOKEN",
+                            "Value": "[parameters('APIToken')]"
+                        },
+                        {
+                            "Name": "DT_API_URL",
+                            "Value": "[parameters('DT_API_URL')]"
+                        },
+                        {
+                            "Name": "DT_SSL_MODE",
+                            "Value": "[parameters('SSLMode')]"
+                        }
+                    ]
+                }
+            },
+            "resources": [
+                {
+                    "type": "siteextensions",
+                    "apiVersion": "2020-12-01",
+                    "name": "Dynatrace",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', parameters('site_name'))]"
+                    ]
+                }
+            ]
+        }
+    ]
+}
