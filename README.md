@@ -4,7 +4,7 @@
   - https://portal.azure.com/#cloudshell
 - On the command prompt type the following: 
     ```
-    git clone https://github.com/jgurbani/azure-app-dt-ext-deploy ```
+    git clone https://github.com/jgurbani/azure-app-dt-ext-deploy
     cd azure-app-dt-ext-deploy/
     ```
 - Make changes to the parameters file
