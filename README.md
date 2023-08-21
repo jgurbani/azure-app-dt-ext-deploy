@@ -6,7 +6,9 @@
   - ``` git clone https://github.com/jgurbani/azure-app-dt-ext-deploy ```
   - ```  cd azure-app-dt-ext-deploy/ ```
 - Make changes to the parameters file
-  - ``` vim app-service-dtExtension-install-parameters.json ```
+  ```
+   vim app-service-dtExtension-install-parameters.json
+  ```
     - Update the site_name, environmentID, APIToken, APIUrl and location values
 - Run the ARM template in Azure CLI Cloudsheell with the following command:  
     ```
