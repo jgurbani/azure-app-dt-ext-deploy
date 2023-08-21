@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "site_name": {
+      "value": "<name>"
+    },
+    "environmentID": {
+      "value": "<dt env id>"
+    },
+    "SSLMode": {
+      "value": "default"
+    },
+    "APIToken": {
+      "value": "<paas token>"
+    },
+    "DT_API_URL": {
+      "value": "https://abc123.live.dynatrace.com/api"
+    },
+    "location": {
+      "value": "<azure region>"
+    }
+  }
+}
