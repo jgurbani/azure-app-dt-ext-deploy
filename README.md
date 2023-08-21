@@ -1,6 +1,5 @@
 # Add Dynatrace extension for azure-appservice
 
-
 - Go to Azure CLI Cloudshell 
   - https://portal.azure.com/#cloudshell
 - On the command prompt type the following: 
