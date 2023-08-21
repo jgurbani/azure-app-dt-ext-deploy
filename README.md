@@ -19,5 +19,6 @@
 - Restart the App Service
   
     ```
-    az webapp
+    az webapp restart --name MyWebapp --resource-group MyResourceGroup
+    
     ```
