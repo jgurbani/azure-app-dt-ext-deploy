@@ -10,7 +10,7 @@
     - Update the site_name, environmentID, APIToken, APIUrl and location values
 - Run the ARM template in Azure CLI Cloudsheell with the following command:  
       ```    
-        az deployment group create  --subscription  <AzSubscriptionName> --resource-group <AzResourceGroup> --template-file app-service-dTExtension-install-armTemplate.json --parameters @app-service-dtExtension-install-parameters.json    
+      az deployment group create  --subscription  <AzSubscriptionName> --resource-group <AzResourceGroup> --template-file app-service-dTExtension-install-armTemplate.json --parameters @app-service-dtExtension-install-parameters.json    
       ```  
 - Restart the App Service
   
