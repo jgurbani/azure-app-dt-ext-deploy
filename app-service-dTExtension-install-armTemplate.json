@@ -15,7 +15,7 @@
             }
         },
         "SSLMode": {
-            "defaultValue": "default",
+            "defaultValue": "all",
             "type": "String",
 			"metadata": {
                 "description": "No change needed"
